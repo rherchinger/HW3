@@ -24,6 +24,7 @@
         String parampostTaxDeduct = request.getParameter("Post-tax_Deduct");
         int postTaxDeduct = Integer.parseInt(parampostTaxDeduct.trim());
    
+
     %>
     <body>
         <h1>Salary Info</h1>
@@ -44,8 +45,14 @@
                     <td># Hours Overtime:</td>
                     <td><%
                         int regularHours = 40;
-                        int otHours = (hoursWorked - 40);
-                        System.out.println(otHours);
+                        int otHours = 0;
+                        if (regularHours > 40){
+                            otHours = (hoursWorked - 40);
+                            out.println(otHours);}
+                        
+                        else{
+                            otHours = 0;
+                            out.println("none");}
                         %>
                     </td>
                 </tr>
@@ -54,7 +61,7 @@
                     <td>Overtime Hourly Rate:</td>
                     <td><%
                         double otPayRate = (hourlyPay * 1.5);
-                        System.out.println(otPayRate);
+                        out.println(otPayRate);
                         %>
                     </td>
                 </tr>
@@ -65,6 +72,7 @@
                         double regularPay = (hoursWorked * hourlyPay);
                         double otPay = (otHours * otPayRate);
                         double grossPay = (regularPay + otPay);
+                        out.println(grossPay);
                         %>
                     </td>
                 </tr>
@@ -78,7 +86,7 @@
                     <td>Pre-tax Pay:</td>
                     <td><%
                         double taxablePay = (grossPay - preTaxDeduct);
-                        System.out.println(taxablePay);
+                        out.println(taxablePay);
                         %>
                     </td>
                 </tr>
@@ -88,11 +96,11 @@
                     <td><%
                         double taxAmount = 0;
                         if (grossPay < 500){
-                            taxAmount = (taxablePay * 18);
+                            taxAmount = (taxablePay * .18);
                         }else{
-                            taxAmount = (taxablePay *22);
+                            taxAmount = (taxablePay * .22);
                         }
-                        System.out.println(taxAmount);
+                        out.println(taxAmount);
                         %>
                     </td>
                 </tr>
@@ -101,7 +109,7 @@
                     <td>Post-tax Pay:</td>
                     <td><%
                         double postTaxPay = (taxablePay - taxAmount);
-                        System.out.println(postTaxPay);
+                        out.println(postTaxPay);
                         %>
                     </td>
                 </tr>
@@ -115,7 +123,7 @@
                     <td>Net Pay:</td>
                     <td><%
                         double netPay = (postTaxPay - postTaxDeduct);
-                        System.out.println(netPay);
+                        out.println(netPay);
                         %>
                     </td>
                 </tr>
