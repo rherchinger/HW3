@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Simple Salary Calculator</title>
-        <link rel="stylesheet" type="text/css" href="./Web Pages/SSCstylesheet.css"/>
+        <link rel="stylesheet" type="text/css" href="./SSCstylesheet.css"/>
     </head>
     <h1>Simple Salary Calculator</h1>
     <form name="Simple Salary Calculator" action="results.jsp" method="post">

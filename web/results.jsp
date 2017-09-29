@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Salary Info</title>
-        <link rel="stylesheet" type="text/css" href="./Web Pages/SSCstylesheet.css"/>
+        <link rel="stylesheet" type="text/css" href="./SSCstylesheet.css"/>
     </head>
     
     <%
@@ -46,7 +46,7 @@
                     <td><%
                         int regularHours = 40;
                         int otHours = 0;
-                        if (regularHours > 40){
+                        if (hoursWorked > 40){
                             otHours = (hoursWorked - 40);
                             out.println(otHours);}
                         
