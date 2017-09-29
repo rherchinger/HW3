@@ -64,8 +64,6 @@
                         double regularPay = (hoursWorked * hourlyPay);
                         double otPay = (otHours * otPayRate);
                         double grossPay = (regularPay + otPay);
-                        
-                        
                         %>
                     </td>
                 </tr>
@@ -77,17 +75,34 @@
                 
                 <tr>
                     <td>Pre-tax Pay:</td>
-                    <td></td>
+                    <td><%
+                        double taxablePay = (grossPay - preTaxDeduct);
+                        System.out.println(taxablePay);
+                        %>
+                    </td>
                 </tr>
                 
                 <tr>
                     <td>Tax Amount:</td>
-                    <td></td>
+                    <td><%
+                        double taxAmount = 0;
+                        if (grossPay < 500){
+                            taxAmount = (taxablePay * 18);
+                        }else{
+                            taxAmount = (taxablePay *22);
+                        }
+                        System.out.println(taxAmount);
+                        %>
+                    </td>
                 </tr>
                 
                 <tr>
                     <td>Post-tax Pay:</td>
-                    <td></td>
+                    <td><%
+                        double postTaxPay = (taxablePay - taxAmount);
+                        System.out.println(postTaxPay);
+                        %>
+                    </td>
                 </tr>
                 
                 <tr>
@@ -97,7 +112,11 @@
                 
                 <tr>
                     <td>Net Pay:</td>
-                    <td></td>
+                    <td><%
+                        double netPay = (postTaxPay - postTaxDeduct);
+                        System.out.println(netPay);
+                        %>
+                    </td>
                 </tr>
                 
             </tbody>
